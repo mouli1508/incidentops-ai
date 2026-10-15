@@ -10,9 +10,12 @@ app = FastAPI(
 )
 
 
-@app.get("/health", tags=["Health"])
+@app.get("/health")
 def health():
-    return {"status": "ok"}
+    return {
+        "status": "ok",
+        "service": "CM Enterprise IncidentOps API"
+    }
 
 
 app.include_router(
