@@ -11,6 +11,7 @@ from app.db.session import SessionLocal
 from app.knowledge.chunker import count_approx_tokens, split_into_chunks
 from app.knowledge.loader import load_document
 from app.knowledge.parser import normalize_text
+from app.knowledge.embeddings import embed_texts
 
 
 logger = logging.getLogger(__name__)
@@ -59,6 +60,7 @@ def persist_document(
     normalized = normalize_text(loaded.content)
 
     chunks = split_into_chunks(normalized)
+    vectors = embed_texts(chunks)
 
     if not chunks:
         raise ValueError("No valid chunks generated")
@@ -92,6 +94,7 @@ def persist_document(
                     "source_uri": loaded.source_uri,
                     "source_type": loaded.source_type,
                     "chunking_strategy": "character_v1",
+                    "embedding_model": "all-MiniLM-L6-v2",
                 },
             )
         )
