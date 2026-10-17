@@ -21,6 +21,8 @@ from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.types import Uuid
 
+from pgvector.sqlalchemy import VECTOR
+
 from app.db.base import Base
 
 
@@ -304,6 +306,11 @@ class KnowledgeChunk(Base):
     document: Mapped["KnowledgeDocument"] = relationship(
         "KnowledgeDocument",
         back_populates="chunks",
+    )
+
+    embedding: Mapped[list[float] | None] = mapped_column(
+        VECTOR(384),
+        nullable=True,
     )
 
     __table_args__ = (
