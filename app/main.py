@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 
 from app.api.routes import incidents, tickets
+from app.api.routes.knowledge import router as knowledge_router
 
 
 app = FastAPI(
@@ -25,5 +26,10 @@ app.include_router(
 
 app.include_router(
     incidents.router,
+    prefix="/api/v1",
+)
+
+app.include_router(
+    knowledge_router,
     prefix="/api/v1",
 )
