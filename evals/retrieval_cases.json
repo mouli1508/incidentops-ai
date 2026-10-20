@@ -1,0 +1,28 @@
+
+[
+  {
+    "id": "vpn_001",
+    "question": "How do I troubleshoot VPN error 809?",
+    "expected_source": "knowledge://runbooks/vpn_troubleshooting.md"
+  },
+  {
+    "id": "vpn_002",
+    "question": "My laptop cannot connect to the company network remotely.",
+    "expected_source": "knowledge://runbooks/vpn_troubleshooting.md"
+  },
+  {
+    "id": "vpn_003",
+    "question": "How do I verify the corporate VPN gateway?",
+    "expected_source": "knowledge://runbooks/vpn_troubleshooting.md"
+  },
+  {
+    "id": "vpn_004",
+    "question": "What should IT do when multiple employees report VPN failures?",
+    "expected_source": "knowledge://runbooks/vpn_troubleshooting.md"
+  },
+  {
+    "id": "vpn_005",
+    "question": "Which ports should I check for an IKEv2 VPN connection?",
+    "expected_source": "knowledge://runbooks/vpn_troubleshooting.md"
+  }
+]
